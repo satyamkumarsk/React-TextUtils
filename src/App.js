@@ -2,10 +2,10 @@
 import React,{ useState } from 'react';
 import './App.css';
 import Alerts from './components/Alerts';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import { Routes,Route } from 'react-router-dom';
+import { Routes,Route } from 'react-router-dom';
 
 function App() {
 const [mode, setMOde]=useState('light')
@@ -57,13 +57,11 @@ const toggleMode=()=>{
 
     <div className='container my-3' >
     
-    <TextForm showAlert={showAlert} heading="Enter The Text" mode={mode}/>
-    
-    {/* <Routes>
+    <Routes>
       
-      <Route path='about'element={<About/>}/>
-      <Route path='home' element={<TextForm showAlert={showAlert} heading="Enter The Text" mode={mode}/>}/>
-    </Routes> */}
+      <Route eaxct path='/about'element={<About mode={mode}/>}/> 
+      <Route path='home' element={<TextForm showAlert={showAlert} heading="Try- TextUtils-Word Counter, Charecter Counter" mode={mode}/>}/>
+    </Routes>
    </div>
       
     </div>

@@ -30,23 +30,23 @@ export default function TextForm(props) {
     return (
         <>
             <div className='container' style={{color:props.mode==="dark"?"yellow":"#092a47"}}>
-                <h1>{props.heading}</h1>
+                <h1 className='mb-2'>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="6" style={{backgroundColor: props.mode==="dark"?"grey":"orange", color:props.mode==="dark"?"black":"#092a47" }}></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="6" style={{backgroundColor: props.mode==="dark"?"#225174":"#adb5bd", color:props.mode==="dark"?"black":"#092a47" }}></textarea>
                 </div>
-                <button className='btn btn-warning ' onClick={handleUpClick}>convert to uppercase</button>
+                <button disabled={text.length===0} className='btn btn-warning my-1' onClick={handleUpClick}>convert to uppercase</button>
 
-                <button className='btn btn-warning mx-2' onClick={handleLoClick}>convet to lowercase</button>
+                <button disabled={text.length===0} className='btn btn-warning mx-1 my-1' onClick={handleLoClick}>convet to lowercase</button>
 
-                <button className='btn btn-warning' onClick={handleClear}>Clear</button>
+                <button disabled={text.length===0} className='btn btn-warning my-1' onClick={handleClear}>Clear</button>
             </div>
 
             <div className='container my-2' style={{color:props.mode==="dark"?"yellow":"#092a47"}}>
                 <h3>Your Text Count</h3>
-                <p>{text.split(" ").length} Words and {text.length} charecter</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} charecter</p>
                 <p>{0.008*text.split(" ").length} minuts read</p>
                 <h2>Preview</h2>
-                <p>{text.length>0?text:"Enter Somthing in TextBox for preview"}</p>
+                <p>{text.length>0?text:"Nothing to preview"}</p>
             </div>
         </>
     )
